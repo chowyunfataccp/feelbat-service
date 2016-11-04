@@ -1,6 +1,7 @@
 package com.feelbat.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -56,10 +57,12 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
 					subVo.setTopflag(false);
 					subList.add(subVo);
 				}
+				Collections.sort(subList);
 				vo.setSubMenuList(subList);
 			}
 			listVo.add(vo);
 		}
+		Collections.sort(listVo);
 		CacheManager.getInstance().setMenuList(listVo);
 	}
 	

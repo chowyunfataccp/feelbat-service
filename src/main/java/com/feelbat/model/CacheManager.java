@@ -60,13 +60,17 @@ public class CacheManager {
 	public Map<Long, List<MenuVo>> getTopMenuList() {
 		if(menuList != null){
 			for(MenuVo menu:menuList){
-				if(menu.isBareflag()){
+				if(!menu.isBareflag()){
 					if(topMenuList == null){
 						topMenuList = new HashMap<Long, List<MenuVo>>();
 					}
 					Long groupid = menu.getGroupid();
-					List<MenuVo> subMenuList = menu.getSubMenuList();
-					topMenuList.put(groupid, subMenuList);
+					List<MenuVo> tmpMenuList = topMenuList.get(groupid);
+					if(tmpMenuList == null){
+						tmpMenuList = new ArrayList<MenuVo>();
+					}
+					tmpMenuList.add(menu);
+					topMenuList.put(groupid, tmpMenuList);
 				}
 			}
 		}
