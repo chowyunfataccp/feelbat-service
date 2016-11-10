@@ -34,6 +34,8 @@ public class CacheManager {
 	
 	//所有自定义菜单（key:groupid,value:一级菜单）
 	private Map<Long,List<MenuVo>> topMenuList = null;
+	
+	private int currentSceneid = -1;
 
 	public List<MenuVo> getMenuList() {
 		return menuList;
@@ -41,6 +43,20 @@ public class CacheManager {
 
 	public void setMenuList(List<MenuVo> menuList) {
 		this.menuList = menuList;
+	}
+	
+
+	public int getCurrentSceneid() {
+		return currentSceneid;
+	}
+
+	public void plusCurrentSceneid(){
+		currentSceneid++;
+	}
+	
+
+	public void setCurrentSceneid(int currentSceneid) {
+		this.currentSceneid = currentSceneid;
 	}
 
 	public List<MenuVo> getBareMenuList() {

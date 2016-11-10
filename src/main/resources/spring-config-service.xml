@@ -13,7 +13,7 @@
 	<aop:aspectj-autoproxy />
 	<!-- ApplicationContext -->
 	<bean class="com.feelbat.util.ApplicationContextUtil"></bean>	
-	
+	<bean class="com.feelbat.listener.InitDataListener"></bean>
 	
 	<context:component-scan base-package="com.feelbat">
 		<context:exclude-filter type="annotation"
